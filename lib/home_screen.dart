@@ -37,11 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _containerWidget() {
     return AnimatedContainer(
-      
+
       //duration is needed in Animated-element 
-      duration:const Duration(milliseconds: 200) ,
+      duration:const Duration(milliseconds: 350) ,
       width: _dimension,
       height: _dimension,
+      
       decoration: _getBoxDecoration(),
       
     );
