@@ -39,7 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return AnimatedContainer(
 
       //duration is needed in Animated-element 
-      duration:const Duration(milliseconds: 350) ,
+      duration:const Duration(seconds: 1) ,
+
+      //the curves section is explained below , for now every animated widget takes a curve property to decide which shape to take when animating 
+      //the types of curves are available in the official website of the flutter curve classes 
+      curve: Curves.easeInBack,
       width: _dimension,
       height: _dimension,
       
@@ -66,4 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: const Text('Start Animation'),
     );
   }
+
+  //Curves : the flutter does animation using a reflection of   a curve 
+  //linear curve that doesn't change the global shape of the animation
+  //a non linear curve will make the  animation element take another shape 
 }
