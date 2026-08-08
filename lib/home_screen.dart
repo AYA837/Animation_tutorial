@@ -57,7 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
       //the curves section is explained below , for now every animated widget takes a curve property to decide which shape to take when animating
       //the types of curves are available in the official website of the flutter curve classes
-      curve: Curves.easeInBack,
+
+      //we can change the curve here depending on our desired use
+      curve: Curves.linearToEaseOut,
       width: _dimension,
       height: _dimension,
 
