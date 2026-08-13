@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/NextScreen.dart';
 import 'package:my_app/Tween_animation_builder.dart';
-import 'package:my_app/Tween_animation_builder.dart';
+import 'package:my_app/animation_with_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -60,7 +60,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
 
-              child:const Text("tween animation builder"),
+              child:const Text("tween animation builder 2"),
+            ),
+            const SizedBox(height: 15,),
+                 
+            ElevatedButton(
+              // Within the `FirstRoute` widget:
+              onPressed: () {
+
+                //first time learning how to navigate from a page to another 
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) =>  const AnimationWithController(),
+                  ),
+                );
+              },
+
+              child:const Text("Animation With Controller "),
             ),
           ],
         ),
