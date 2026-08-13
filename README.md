@@ -1,6 +1,6 @@
 # my_animation_learning_app
 
-A new Flutter project.
+I hate that stupid github is not giving me my green squares whenever i fuckin commit
 
 ## Getting Started
 
