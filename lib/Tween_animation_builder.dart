@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
        
+// ignore: must_be_immutable
 class MyTween extends StatelessWidget {
  
-  MyTween({super.key});
+ const MyTween({super.key});
 
-  double _dimension = 100;
-  double _begin = 100;
-  double _end = 300;
+  final double _begin = 100;
+  final double _end = 300;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
