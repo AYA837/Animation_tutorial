@@ -15,9 +15,11 @@ class AnimationWithController extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 20,),
             _stackWidget(),
             const SizedBox(height: 10),
             _buttonsController(),
+            const SizedBox(height: 20,),
           ],
         ),
       ),
@@ -48,17 +50,23 @@ class AnimationWithController extends StatelessWidget {
 
   Widget _buttonsController() {
     return Wrap(
+      
       children: [
+        
         ElevatedButton(onPressed: () {}, child: const Text("Forward")),
 
+        const SizedBox(width: 10,),
+
         ElevatedButton(onPressed: () {}, child: const Text("Reverse")),
+        const SizedBox(width: 10,),
 
         ElevatedButton(onPressed: () {}, child: const Text("Stop")),
+        const SizedBox(width: 10,),
 
         ElevatedButton(onPressed: () {}, child: const Text("Reset")),
-
+ 
         ElevatedButton(onPressed: () {}, child: const Text("Repeat(reverse = false)")),
-
+           const SizedBox(width: 10,),
         ElevatedButton(onPressed: () {}, child: const Text("Repeat(reverse = true)")),
       ],
     );
