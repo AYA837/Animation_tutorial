@@ -10,8 +10,7 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-//external functions need to be inside the class always remember that
-
+//external functions need to be inside the class always remember that 
 class _HomeScreenState extends State<HomeScreen> {
   //to control the dimension of the stupid element we built
   //everytime we press the button the width and height changes depending on what's inside the on pressed changes

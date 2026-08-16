@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 //hello world
 
@@ -7,7 +9,7 @@ class NextScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Counter SCreen"),
+        title: const Text("Tween Animation Builder"),
         backgroundColor: Colors.blue,
       ),
 
@@ -22,6 +24,7 @@ class NextScreen extends StatelessWidget {
           duration: const Duration(seconds: 4),
           //the animation is done in such a way the builder is being called over and over again
           builder: (BuildContext context,int  value , child) {
+            // ignore: avoid_print
             print("builder called for $value");
             return Text(
               value.toString(),

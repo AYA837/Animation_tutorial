@@ -33,6 +33,9 @@ class MyTween extends StatelessWidget {
     );
   }
 
+
+  //the tween animation builder always rebuilds what's inside of it 
+  //if we don't have to rebuild things we put them in a widget inside the child property of the builder 
   Widget _NonrepeatedWidget() {
     return Container(child: Text("this is text", style: _getTextStyle()));
   }
