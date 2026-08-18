@@ -8,23 +8,52 @@ class AnimationWithController extends StatefulWidget {
       _AnimationWithControllerState();
 }
 
+
+//ticker Provider
+//we will turn the 
+
 class _AnimationWithControllerState extends State<AnimationWithController>
     with SingleTickerProviderStateMixin {
-  
-
+  //single ticker provider in case of using one animation controller only
+  //late keyword
   //a variable that will have a value in the latter lines but will not be given the value now 
 
   //we will do that in the init state overriding
   late Animation<AlignmentGeometry> firstBallAnimation;
   late Animation<AlignmentGeometry> secondBallAnimation;
 
+  //to control these animations we use animation Controller variable
+
+  late AnimationController _animationController;
+
   @override
   void initState() {
     super.initState();
-    firstBallAnimation = Tween<AlignmentGeometry>(begin: Alignment.topCenter , end: Alignment.bottomCenter );
-    secondBallAnimation = Tween<AlignmentGeometry>(begin:Alignment.centerLeft  , end:Alignment.centerRight );
-   
+
+
+     _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+      
+      //reverse duration is the duration when the same animation happens from end to begin
+
+      reverseDuration: const Duration(seconds: 2),
+
+      );
   
+    //the variables will be given values in the init state here
+
+
+    firstBallAnimation = Tween<AlignmentGeometry>(begin: Alignment.topCenter , end: Alignment.bottomCenter ).animate(_animationController); 
+    secondBallAnimation = Tween<AlignmentGeometry>(begin:Alignment.centerLeft  , end:Alignment.centerRight ).animate(_animationController);
+
+    //controller controls the upper bound , lowerbound of the animation
+    //by default they're 0 to 1 
+
+    //it also controls the duration the animation happens in
+
+
+   
 
   }
 
@@ -76,38 +105,39 @@ class _AnimationWithControllerState extends State<AnimationWithController>
 
   Widget _buttonsController() {
     return Wrap(
+      alignment: WrapAlignment.spaceBetween,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: ()=> _animationController.forward(),
           child: const Text("Forward"),
         ),
-        const SizedBox(width: 10,),
+      
 
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () =>_animationController.reverse(),
           child: const Text("Reverse"),
         ),
-        const SizedBox(width: 10,),
+    
 
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () =>_animationController.stop(),
           child: const Text("Stop"),
         ),
-        const SizedBox(width: 10,),
+        
 
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () =>_animationController.reset(),
           child: const Text("Reset"),
         ),
 
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () =>_animationController.repeat(reverse: false),
           child: const Text("Repeat(reverse = false)"),
         ),
-        const SizedBox(width: 10,),
+    
 
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () =>_animationController.repeat(reverse: true),
           child: const Text("Repeat(reverse = true)"),
         ),
       ],
