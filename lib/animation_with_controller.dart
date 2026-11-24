@@ -37,7 +37,7 @@ class _AnimationWithControllerState extends State<AnimationWithController>
       
       //reverse duration is the duration when the same animation happens from end to begin
 
-      reverseDuration: const Duration(seconds: 2),
+      reverseDuration: const Duration(seconds: 1),
 
       );
   
@@ -108,19 +108,21 @@ class _AnimationWithControllerState extends State<AnimationWithController>
       alignment: WrapAlignment.spaceBetween,
       children: [
         ElevatedButton(
-          onPressed: ()=> _animationController.forward(),
+
+          
+          onPressed: ()=> _animationController.forward(), //animate from begin to end while continueing from the current positions
           child: const Text("Forward"),
         ),
       
 
         ElevatedButton(
-          onPressed: () =>_animationController.reverse(),
+          onPressed: () =>_animationController.reverse(), //animate from end to begin while continueing from the current positions
           child: const Text("Reverse"),
         ),
     
 
         ElevatedButton(
-          onPressed: () =>_animationController.stop(),
+          onPressed: () =>_animationController.stop(), //interrupt the animation that's happening 
           child: const Text("Stop"),
         ),
         
