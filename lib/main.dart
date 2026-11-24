@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/home_screen.dart';
-import 'package:my_app/homePage.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+import 'dart:io' show Platform;
+
+import 'screens/todo.dart';
 
 void main() {
-  runApp(MyApp());
+  if (Platform.isLinux || Platform.isWindows) {
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
+  runApp(const MainApp());
 }
 
-class MyApp extends StatelessWidget {
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: homePage(),
-    );
+    return const MaterialApp(home: TodoHomeScreen());
   }
 }
