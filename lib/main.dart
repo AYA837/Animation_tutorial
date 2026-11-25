@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+//library that we use to show the operating system the dart code is currently running on
+//show keyword to access only the platform functionality in the file
 import 'dart:io' show Platform;
 
 import 'screens/todo.dart';
 
 void main() {
-  if (Platform.isLinux || Platform.isWindows) {
+  if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
   }

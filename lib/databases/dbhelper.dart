@@ -13,15 +13,16 @@ class DBHelper {
     if (database != null) {
       return database;
     }
+    String path =  join(await getDatabasesPath(), _database_name); //generated using the package path
     database = openDatabase(
-      join(await getDatabasesPath(), _database_name),
-      onCreate: (database, version) async {
-        for (var item in sql_tables) {
-          await database.execute(item);
-        }
+      path,
+      onCreate: (database , version) async{
+       for(var item in sql_tables){
+        database.execute(item);
+       }
       },
       version: _database_version,
-      onUpgrade: (db, oldVersion, newVersion) {},
+      onUpgrade: (db , oldVersion , newVersion){},
     );
     return database;
   }

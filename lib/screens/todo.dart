@@ -52,6 +52,7 @@ class _TodoHomeScreenState extends State<TodoHomeScreen> {
             ),
           ),
           getBottomForm(),
+          const SizedBox(height: 45,),
         ],
       ),
     );
@@ -62,7 +63,9 @@ class _TodoHomeScreenState extends State<TodoHomeScreen> {
       height: 30,
       child: Row(
         children: [
+          const SizedBox(width: 10,),
           Expanded(
+            
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
@@ -82,8 +85,10 @@ class _TodoHomeScreenState extends State<TodoHomeScreen> {
             },
             child: Text('Add'),
           ),
+         const SizedBox(width: 15,),
         ],
       ),
+      
     );
   }
 
