@@ -1,4 +1,7 @@
-class TodoDB {
+import 'dbBase.dart';
+
+
+class TodoDB  extends DBBaseTable{
   TodoDB._internal();
   static final TodoDB _instance = TodoDB._internal();
 
@@ -7,7 +10,7 @@ class TodoDB {
   static TodoDB get instance => _instance;
 
   @override
-  String get tableName => 'todo';
+  String get tablename => 'todo';
 
   static const sqlTable = '''
     CREATE TABLE IF NOT EXISTS todo (
